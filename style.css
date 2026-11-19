@@ -1,0 +1,524 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,800&family=Instrument+Serif&family=Syne:wght@800&display=swap");
+
+/* ============================================================
+   TEMAS POR SECCIÓN
+   Cada sección del index.html tiene data-tema="crema|negro|rojo".
+   Al navegar, el JS copia ese valor al <body> y cambian a la vez
+   la paleta y la tipografía de los títulos.
+   ============================================================ */
+
+/* Tema por defecto: crema (también lo usa inspiracion.html) */
+:root {
+  --fondo: #efe9e1;
+  --superficie: #f8f4ee;
+  --texto: #1d0b0a;
+  --texto-secundario: #5e504c;
+  --acento: #e0261c;
+  --acento-hover: #b81a12;
+  --sobre-acento: #ffffff;
+  --borde: #d9d0c6;
+  --sombra: 0 10px 25px rgba(29, 11, 10, 0.08);
+
+  --fuente-titulos: "Bricolage Grotesque", system-ui, sans-serif;
+  --peso-titulos: 800;
+  --escala: 1;
+}
+
+body[data-tema="negro"] {
+  --fondo: #0b0707;
+  --superficie: #171010;
+  --texto: #f1ece6;
+  --texto-secundario: #a99d97;
+  --acento: #ff3b2f;
+  --acento-hover: #ff6a5f;
+  --sobre-acento: #0b0707;
+  --borde: #2a1f1e;
+  --sombra: 0 10px 25px rgba(0, 0, 0, 0.45);
+
+  --fuente-titulos: "Instrument Serif", Georgia, serif;
+  --peso-titulos: 400;
+  --escala: 1.25;
+}
+
+body[data-tema="rojo"] {
+  --fondo: #d8231a;
+  --superficie: #b81a12;
+  --texto: #fff3ee;
+  --texto-secundario: #ffd3cb;
+  --acento: #fff3ee;
+  --acento-hover: #ffffff;
+  --sobre-acento: #d8231a;
+  --borde: #ef6a60;
+  --sombra: 0 10px 25px rgba(0, 0, 0, 0.3);
+
+  --fuente-titulos: "Syne", system-ui, sans-serif;
+  --peso-titulos: 800;
+  --escala: 0.95;
+}
+
+/* Modo oscuro (classList.toggle("oscuro")): los temas claros pasan a oscuros */
+body.oscuro {
+  --fondo: #0b0707;
+  --superficie: #171010;
+  --texto: #f1ece6;
+  --texto-secundario: #a99d97;
+  --acento: #ff3b2f;
+  --acento-hover: #ff6a5f;
+  --sobre-acento: #0b0707;
+  --borde: #2a1f1e;
+  --sombra: 0 10px 25px rgba(0, 0, 0, 0.45);
+}
+
+body.oscuro[data-tema="rojo"] {
+  --fondo: #7d0f0a;
+  --superficie: #5e0b07;
+  --texto: #fff3ee;
+  --texto-secundario: #f2b8af;
+  --acento: #fff3ee;
+  --acento-hover: #ffffff;
+  --sobre-acento: #7d0f0a;
+  --borde: #a32019;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--fondo);
+  color: var(--texto);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Tipografía de títulos: cambia con el tema */
+h1,
+h2,
+h3,
+.logo {
+  font-family: var(--fuente-titulos);
+  font-weight: var(--peso-titulos);
+}
+
+/* Navegación */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--superficie);
+  border-bottom: 1px solid var(--borde);
+  transition: all 0.25s ease;
+}
+
+header.scrolled {
+  box-shadow: var(--sombra);
+}
+
+.nav-contenedor {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.9rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.15rem;
+  text-decoration: none;
+  color: var(--texto);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--texto-secundario);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--acento);
+}
+
+#btn-tema {
+  background: transparent;
+  color: var(--texto);
+  border: 1px solid var(--borde);
+  padding: 0.45rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+#btn-tema:hover {
+  border-color: var(--acento);
+  transform: translateY(-1px);
+}
+
+/* Secciones generales */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.seccion {
+  padding: 4.5rem 0;
+  border-bottom: 1px solid var(--borde);
+}
+
+.seccion h2 {
+  font-size: calc(2rem * var(--escala));
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+/* Hero */
+.hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  align-items: center;
+  gap: 2.5rem;
+  min-height: 70vh;
+}
+
+.subtitulo-rol {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--acento);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.hero h1 {
+  font-size: calc(clamp(2.8rem, 8vw, 6rem) * var(--escala));
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  margin-bottom: 1.25rem;
+}
+
+.frase-hero {
+  font-size: 1.15rem;
+  color: var(--texto-secundario);
+  margin-bottom: 1.5rem;
+}
+
+.hero-botones {
+  display: flex;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.btn-principal,
+.btn-secundario,
+.btn-proyecto {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-principal {
+  background-color: var(--acento);
+  color: var(--sobre-acento);
+}
+
+.btn-principal:hover {
+  background-color: var(--acento-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secundario {
+  background-color: transparent;
+  color: var(--texto);
+  border: 1px solid var(--borde);
+}
+
+.btn-secundario:hover {
+  border-color: var(--acento);
+  transform: translateY(-2px);
+}
+
+.hero-imagen img {
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 24px;
+  border: 3px solid var(--borde);
+  box-shadow: var(--sombra);
+  display: block;
+  margin: 0 auto;
+}
+
+/* Proyectos */
+.grid-proyectos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.proyecto-card {
+  background-color: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--sombra);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.5s ease;
+}
+
+.proyecto-card:hover {
+  transform: translateY(-6px);
+}
+
+.proyecto-card img {
+  width: 100%;
+  height: 185px;
+  object-fit: cover;
+  display: block;
+}
+
+.proyecto-info {
+  padding: 1.25rem;
+}
+
+.anio {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--acento);
+}
+
+.proyecto-info h3 {
+  margin: 0.25rem 0 0.5rem;
+  font-size: calc(1.15rem * var(--escala));
+}
+
+.proyecto-info p {
+  color: var(--texto-secundario);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.tags {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.tags span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background-color: var(--fondo);
+  border: 1px solid var(--borde);
+}
+
+.btn-proyecto {
+  background-color: var(--fondo);
+  color: var(--texto);
+  border: 1px solid var(--borde);
+  font-size: 0.9rem;
+}
+
+.btn-proyecto:hover {
+  background-color: var(--acento);
+  color: var(--sobre-acento);
+  border-color: var(--acento);
+}
+
+/* Sobre mí y Habilidades */
+.texto-sobre-mi {
+  max-width: 75ch;
+  font-size: 1.05rem;
+  color: var(--texto-secundario);
+}
+
+.lista-habilidades {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.lista-habilidades li {
+  background-color: var(--superficie);
+  border: 1px solid var(--borde);
+  padding: 0.6rem 1.1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.lista-habilidades li:hover {
+  transform: translateY(-2px);
+  border-color: var(--acento);
+}
+
+/* Contacto */
+form {
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+input,
+textarea {
+  padding: 0.75rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid var(--borde);
+  background-color: var(--superficie);
+  color: var(--texto);
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--acento);
+  outline-offset: 1px;
+}
+
+.mensaje-error {
+  color: #ff8a80;
+  font-size: 0.9rem;
+  font-weight: 600;
+  min-height: 1.2rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--texto-secundario);
+  font-size: 0.95rem;
+}
+
+footer a {
+  color: var(--acento);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   TRANSICIÓN DE GOTA
+   ============================================================ */
+
+/* Aro de color que va al frente de la gota. Solo existe durante la transición. */
+.gota {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--acento);
+  pointer-events: none;
+  display: none;
+  view-transition-name: gota;
+}
+
+.gota.visible {
+  display: block;
+}
+
+/* Desactivamos el fundido por defecto: la animación la hace el JS */
+::view-transition-old(root),
+::view-transition-new(root),
+::view-transition-old(gota),
+::view-transition-new(gota) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Borde suave, como el de la gota del video */
+::view-transition-group(gota) {
+  filter: blur(7px);
+}
+
+/* Durante la transición se apagan las transiciones normales para
+   que el navegador capture los colores finales de la sección nueva */
+html.cambiando *,
+html.cambiando *::before,
+html.cambiando *::after {
+  transition: none !important;
+}
+
+/* El título de la sección nueva nace en color de acento y desenfocado
+   y se asienta hasta su color final */
+.tinte h1,
+.tinte h2 {
+  animation: tinte 1.3s 0.25s ease-out both;
+}
+
+@keyframes tinte {
+  from {
+    color: var(--acento);
+    filter: blur(7px);
+  }
+  to {
+    color: var(--texto);
+    filter: blur(0);
+  }
+}
+
+/* Responsivo para celulares */
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-top: 2.5rem;
+    min-height: auto;
+  }
+
+  .hero-botones {
+    justify-content: center;
+  }
+
+  .nav-contenedor {
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

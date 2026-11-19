@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿En qué me inspiré? | Benjamin Barrientos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header id="navbar">
+    <nav class="nav-contenedor">
+      <a href="index.html" class="logo">Benjamin.dev</a>
+      <ul class="nav-links">
+        <li><a href="index.html">← Volver al portfolio</a></li>
+        <li><a href="#referencias">3 Referencias</a></li>
+        <li><a href="#decisiones">Decisiones de diseño</a></li>
+        <li><a href="#aprendizaje">Qué aprendí</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="seccion">
+      <h1>¿En qué me inspiré?</h1>
+      <p class="texto-sobre-mi">
+        En esta página explico qué portfolios tomé como referencia, qué decisiones de diseño tomé para construir mi sitio y qué me dejó este proceso.
+      </p>
+    </section>
+
+    <!-- 1. LOS 3 PORTFOLIOS DE REFERENCIA -->
+    <section id="referencias" class="seccion">
+      <h2>Portfolios de referencia</h2>
+
+      <article class="proyecto-card" style="margin-bottom: 1.25rem;">
+        <div class="proyecto-info">
+          <h3>1. Melon Studio — Autor: no figura</h3>
+          <p><strong>URL:</strong> <a href="https://melon.studio/work" target="_blank">https://melon.studio/work</a></p>
+          <p><strong>Qué me aportó:</strong> Me gustó mucho el dinamismo general de todo el portfolio, cómo maneja la paleta de colores, las transiciones suaves y la presentación clara de los trabajos para lograr una experiencia visual atractiva. De ahí salió la idea central de mi sitio: la transición en la que una gota se expande al tocar el menú y cambia los colores y la tipografía de la sección.</p>
+        </div>
+      </article>
+
+      <article class="proyecto-card" style="margin-bottom: 1.25rem;">
+        <div class="proyecto-info">
+          <h3>2. shvgvn — Autor: no figura</h3>
+          <p><strong>URL:</strong> <a href="https://shvgvn.com/#about" target="_blank">https://shvgvn.com/#about</a></p>
+          <p><strong>Qué me aportó:</strong> Me llamó la atención su propuesta creativa de plantear una especie de "virus" que entra en la computadora y da paso a un portfolio original, demostrando que un sitio web también puede tener una idea conceptual fuerte.</p>
+        </div>
+      </article>
+
+      <article class="proyecto-card">
+        <div class="proyecto-info">
+          <h3>3. Studio Macaco — Autor: Studio Macaco</h3>
+          <p><strong>URL:</strong> <a href="https://studiomacaco.ch/en/projects" target="_blank">https://studiomacaco.ch/en/projects</a></p>
+          <p><strong>Qué me aportó:</strong> Me pareció muy interesante que todo el portfolio gire en torno a un robot inspirado en Evangelion, dándole identidad propia y una temática memorable a la navegación.</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- 2. MIS DECISIONES DE DISEÑO (AL MENOS 3 JUSTIFICADAS) -->
+    <section id="decisiones" class="seccion">
+      <h2>Mis decisiones de diseño</h2>
+      <ul class="lista-habilidades" style="flex-direction: column;">
+        <li>
+          <strong>1. Orden de secciones priorizando proyectos:</strong> Ubiqué los proyectos justo después de la presentación inicial para que quien entre vea primero lo que construí, manteniendo todas las secciones obligatorias con navegación por anclas.
+        </li>
+        <li>
+          <strong>2. Un tema distinto para cada sección:</strong> Armé tres temas (crema, negro y rojo) que combinan una paleta de colores con una tipografía propia para los títulos. Al pasar de una sección a otra cambian los dos a la vez, así cada parte del portfolio se siente como un espacio distinto sin dejar de ser parte del mismo sitio. Mantuve el rojo como color de acento para que todo se vea coherente.
+        </li>
+        <li>
+          <strong>3. Transición de gota entre secciones:</strong> En lugar de un salto seco, al tocar el menú nace una gota en el punto del clic y se expande revelando la sección nueva. Tomé la idea de Melon Studio pero la armé con mi propio código (View Transitions de JavaScript y clip-path de CSS). Si el navegador no la soporta o la persona tiene activado "reducir movimiento", el sitio igual cambia de sección con un scroll suave.
+        </li>
+        <li>
+          <strong>4. Título grande en la presentación:</strong> Agrandé mi nombre en el inicio, partido en dos líneas, para que sea lo primero que se ve y para que se note el cambio de tipografía entre secciones.
+        </li>
+        <li>
+          <strong>5. Modo oscuro y diseño adaptable a celular:</strong> El botón de modo oscuro oscurece los temas claros, y el contenido está organizado en tarjetas y columnas flexibles con media queries para que se lea bien tanto en computadora como en teléfono.
+        </li>
+      </ul>
+    </section>
+
+    <!-- 3. QUÉ APRENDÍ EN ESTE PROCESO -->
+    <section id="aprendizaje" class="seccion">
+      <h2>Qué aprendí en este proceso</h2>
+      <p class="texto-sobre-mi">
+        Lo que más me costó fue ordenar bien las rutas de archivos e imágenes, conectar el formulario con Formspree y dejar todo prolijo para que funcione sin errores. Descubrí lo importante que es planificar la estructura antes de codear y revisar cada detalle en el navegador. Si empezara de nuevo, organizaría los nombres de archivos y carpetas desde el primer minuto para ahorrarme ajustes después.
+      </p>
+    </section>
+
+    <!-- 4. ENLACE DE REGRESO -->
+    <section class="seccion">
+      <a href="index.html" class="btn-principal">← Volver al portfolio</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Benjamin Barrientos — <a href="index.html">Inicio</a></p>
+  </footer>
+
+</body>
+</html>

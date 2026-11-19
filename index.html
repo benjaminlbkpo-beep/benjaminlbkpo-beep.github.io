@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benjamin Barrientos | Portfolio Web</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-tema="crema">
+
+  <!-- Barra de navegación interna con anclas -->
+  <header id="navbar">
+    <nav class="nav-contenedor">
+      <a href="#hero" class="logo">Benjamin / Mi Portfolio</a>
+      <ul class="nav-links">
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="inspiracion.html">¿En qué me inspiré?</a></li>
+      </ul>
+      <!-- Botón para la funcionalidad JS extra (Punto 07) -->
+      <button id="btn-tema" aria-label="Cambiar tema">Modo oscuro</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- SECCIÓN 1: HERO / PRESENTACIÓN -->
+    <section id="hero" class="seccion hero" data-tema="crema">
+      <div class="hero-texto">
+        <span class="subtitulo-rol">Estudiante de Tecnicatura en Programación</span>
+        <h1>Benjamin<br>Barrientos</h1>
+        <p class="frase-hero">Estudiante y Futuro Programador Web</p>
+        <div class="hero-botones">
+          <a href="#proyectos" class="btn-principal">Ver proyectos</a>
+          <a href="#contacto" class="btn-secundario">Contactarme</a>
+        </div>
+      </div>
+      <div class="hero-imagen">
+        <img src="imagenes/fotoperfil.jpeg" alt="Foto de perfil de Benjamin Barrientos">
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: PROYECTOS -->
+    <section id="proyectos" class="seccion" data-tema="negro">
+      <h2>Proyectos</h2>
+      <div class="grid-proyectos">
+
+        <!-- Proyecto 1: Torneo +30 -->
+        <article class="proyecto-card">
+          <img src="imagenes/torneo+30.png" alt="Captura del proyecto Torneo +30">
+          <div class="proyecto-info">
+            <span class="anio">2026</span>
+            <h3>Torneo +30</h3>
+            <p>Página central de un torneo +30 en el cual se suben horarios, resultados, tablas, las figuras de la semana y toda la información del campeonato.</p>
+            <div class="tags">
+              <span>HTML</span>
+              <span>CSS</span>
+            </div>
+            <a href="torneo-empresas/index.html" class="btn-proyecto" target="_blank">Ver proyecto</a>
+          </div>
+        </article>
+
+        <!-- Proyecto 2: Hamburguesería -->
+        <article class="proyecto-card">
+          <img src="imagenes/negociobenja.png" alt="Captura de Hamburgueseria Benja y Bri">
+          <div class="proyecto-info">
+            <span class="anio">2026</span>
+            <h3>Hamburguesería Benja y Bri: Las mejores hamburguesas del mundo mundial</h3>
+            <p>Simulación completa de la web de una hamburguesería, con apartados interactivos como "Ayuda", "Contactos", "Mi cuenta" y "Medios de pago".</p>
+            <div class="tags">
+              <span>HTML</span>
+              <span>CSS</span>
+            </div>
+            <a href="proyecto-negocio/index.html" class="btn-proyecto" target="_blank">Ver proyecto</a>
+          </div>
+        </article>
+
+        <!-- Proyecto 3: Calculadora -->
+        <article class="proyecto-card">
+          <img src="imagenes/calculadoracaptura.png" alt="Captura de Calculadora 2026">
+          <div class="proyecto-info">
+            <span class="anio">2026</span>
+            <h3>Calculadora 2026</h3>
+            <p>Una calculadora creada desde cero, 100% funcional para realizar operaciones matemáticas directamente desde el navegador.</p>
+            <div class="tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+            </div>
+            <a href="calculadora/index.html" class="btn-proyecto" target="_blank">Ver proyecto</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: SOBRE MÍ -->
+    <section id="sobre-mi" class="seccion" data-tema="crema">
+      <h2>Sobre mí</h2>
+      <p class="texto-sobre-mi">
+        Soy un estudiante de la Escuela Técnica 5, me gusta mucho la idea de programar y cada día superarme a mí mismo en distintos terrenos. Me considero una persona dinámica, rápida y efectiva para los objetivos que me propongo.
+      </p>
+    </section>
+
+    <!-- SECCIÓN 4: HABILIDADES / TECNOLOGÍAS -->
+    <section id="habilidades" class="seccion" data-tema="rojo">
+      <h2>Habilidades y Tecnologías</h2>
+      <ul class="lista-habilidades">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Arduino</li>
+        <li>Python</li>
+      </ul>
+    </section>
+
+    <!-- SECCIÓN 5: CONTACTO (Formspree) -->
+    <section id="contacto" class="seccion" data-tema="negro">
+      <h2>Contacto</h2>
+      <p>¿Tenés alguna consulta o propuesta? Escribime y te respondo a la brevedad.</p>
+      
+      <form id="form-contacto" action="https://formspree.io/f/mljbnvyg" method="POST">
+        <label for="nombre">Nombre
+          <input type="text" id="nombre" name="nombre" required>
+        </label>
+
+        <label for="email">Email
+          <input type="email" id="email" name="email" required>
+        </label>
+
+        <label for="mensaje">Mensaje
+          <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+        </label>
+
+        <!-- Mensaje de error para validación JS sin alert() -->
+        <p id="error-form" class="mensaje-error"></p>
+
+        <button type="submit" class="btn-principal">Enviar mensaje</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Benjamin Barrientos — <a href="inspiracion.html">¿En qué me inspiré?</a></p>
+  </footer>
+
+  <!-- Aro de color de la transición (solo se ve durante la animación) -->
+  <div class="gota" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

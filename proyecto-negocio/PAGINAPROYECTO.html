@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Dinámica — Actividad JS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-marca">
+            <a href="#">
+                <img src="./imagenes/logoo.png" alt="Burger Begui" class="Logo">
+            </a>
+            <h1>Hamburgueseria Benja y Bri: Las mejores hamburguesas del mundo mundial</h1>
+        </div>
+
+        <nav class="menu-contenedor">
+            <ul class="menu-links">
+                <li class="menu-item"><a href="PAGINAPROYECTO.html">Home</a></li>
+                <li class="menu-item"><a href="Cuenta.html">Mi Cuenta</a></li>
+                <li class="menu-item"><a href="Contacto.html">Contacto</a></li>
+                <li class="menu-item"><a href="HorariosUbi.html">Horarios y ubicación</a></li>
+                <li class="menu-item"><a href="MediosPago.html">Medios de pago</a></li>
+                <li class="menu-item"><a href="Ayuda.html">Centro de ayuda</a></li>
+            </ul>
+        </nav>
+
+        <button id="btn-tema" onclick="cambiarTema()">🌙 Modo Oscuro</button>
+    </header>
+
+    <main>
+        <h2 class="titulo-seccion">Nuestros Productos</h2>
+
+        <div class="carrusel-contenedor">
+            <button class="flecha" id="btn-anterior" onclick="moverCarrusel(-1)">◀</button>
+
+            <div class="carrusel-wrapper">
+                <div class="carrusel-track" id="carrusel-track"></div>
+            </div>
+
+            <button class="flecha" id="btn-siguiente" onclick="moverCarrusel(1)">▶</button>
+        </div>
+
+        <div class="indicadores" id="indicadores"></div>
+    </main>
+
+    <footer>
+        <p>Web Dinámicas — 6°2 — Tecnicatura en Programación</p>
+    </footer>
+
+    <button id="carrito-flotante" onclick="verCarrito()" style="display:none;">
+        🛒 <span id="contador-carrito">0</span> productos
+    </button>
+
+    <script src="PAGINAPRO.js"></script>
+</body>
+</html>

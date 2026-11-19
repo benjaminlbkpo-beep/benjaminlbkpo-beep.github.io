@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="titulo" >MATERIA WEB DINAMICAS</h1>
+    <button onclick="cambiar_p()">hacer clic</button>
+
+
+    <p class="parrafo1">buenas somos alejo barrios y benjamin barrientos</p>
+   <button onclick="cambiar_p1()">hacer clic</button>
+
+
+    <p class="parrafo2" >Estamos aprendiendo a programar en...</p>
+    <button onclick="cambiar_p2()">hacer clic</button>
+            
+    <p class="parrafo3" >Prueba de reinicio de estilos para este parrafo</p>
+    <button onclick="cambiar_p3()">hacer clic</button>
+
+    <style>
+        p, h1{
+            color: blue;
+            }
+            .resaltado {
+                font-weight: bold;
+                color: brown;
+                background-color: yellow;
+                }
+    </style>
+
+    <script>
+    function cambiar_p() { 
+        let parrafo = document.getElementById("titulo")
+        titulo.textContent = "DESARROLLO DE APLICACIONES WEB DINÁMICAS";
+        titulo.style.color = "brown";
+        titulo.style.textTransform = "none";
+        titulo.style.fontSize = "50px";
+        titulo.style.textAlign ="20px";
+    }
+        function cambiar_p1() { 
+        let parrafo1 = document.querySelector(".parrafo1")
+        parrafo1.style.color = "brown";
+        parrafo1.style.backgroundColor = "yellow";
+        parrafo1.style.fontWeight = "bold";
+        parrafo1.style.fontSize = "20px";
+    }
+
+        function cambiar_p2() { 
+        let parrafo2 = document.querySelector(".parrafo2")
+        parrafo2.textContent ="Estamos aprendiendo a programar con Java Script";
+        parrafo2.style.fontSize = "25px";
+        parrafo2.style.color = "black";
+    }
+        
+    function cambiar_p3() { 
+        let parrafo3 = document.querySelector(".parrafo3")
+        parrafo3.classList.toggle("resaltado");
+        //Cuando usas .toggle() en JavaScript, estás alterando el estado de una clase:
+        // si esta activada se desactiva, y si está desactivada se activa.
+        // sus clases deCSS de forma sencilla
+    }
+</script>
+</body> 
+</html>
